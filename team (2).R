@@ -1,4 +1,4 @@
-library("rjson")
+lslibrary("rjson")
 library(tidyverse)
 library(ggplot2)
 library(sf)
@@ -26,7 +26,7 @@ seoul2$SIG_CD<-as.numeric(seoul2$SIG_CD)
 seoulf <- subset(seoul2, seoul2$SIG_CD < 12000)
 
 # prepare dataset
-df_seoul <- read.csv("C:\\Users\\moon chung Sook\\Documents\\카카오톡 받은 파일\\서울시 부동산 실거래가 정보 2021.csv", header = T, fileEncoding = "euc-kr")
+df_seoul <- read.csv("seoul2021.csv", header = T, fileEncoding = "euc-kr")
 df_seoul_price <- df_seoul %>% mutate(price_m2 = 물건금액.만원. / 건물면적... )
 df_gu <- df_seoul_price %>% 
   group_by(자치구명) %>% 
@@ -143,7 +143,7 @@ anim_save(filename = "gu_animation.gif",
 
 ###########################################
 # data processing
-seoul_est <- read.csv("C:\\Users\\moon chung Sook\\Documents\\카카오톡 받은 파일\\team\\seoulest.csv", header = T, fileEncoding = "euc-kr")
+seoul_est <- read.csv("seoulest.csv", header = T, fileEncoding = "euc-kr")
 seoul_est_price <- seoul_est %>% mutate(price_m2 = 물건금액.만원. / 건물면적... )
 seoul_est_cut <- seoul_est_price %>% select(접수연도, 자치구명, price_m2)
 seoul_est_filter <- seoul_est_cut %>% 
